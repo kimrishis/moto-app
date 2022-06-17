@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moto app</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+  <style>
+* {
+    width: 95%;
+    margin: 10px auto;
+}    
+  </style>
+</head>
+<body>
+    <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+      <label for="inputhodo" style="color:#fff;">Hodometro</label>
+      <input type="text" id="inputhodo" class="nes-input is-dark" placeholder="hodometro?" value="">
+    </div>
+    <button type="button" class="nes-btn is-success" onclick="hodometro()">manutenção</button>
+    <div id="containermanutencao" class="nes-container is-rounded" style="display: none;">
+    </div>
+    <hr>
+    <section>
+      <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
+        Cadastro de peça
+      </button>
+      <dialog class="nes-dialog" id="dialog-default">
+        <form method="dialog">
+          <p class="title">Qual peça vai ser cadastrada?</p>
+          <p></p>
+          <div class="nes-field">
+            <label for="inputpeca">Peça</label>
+            <input type="text" id="inputpeca" class="nes-input">
+          </div>
+          <div class="nes-field">
+            <label for="inputpecakm">Peça troca com quantos KM?</label>
+            <input type="text" id="inputpecakm" class="nes-input">
+          </div>
+          <menu class="dialog-menu">
+            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn is-primary" onclick="cadastraPeca()">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+    </section>
+    <div id="conainerPecas" class="nes-container is-rounded" style="display: none;">
+    </div>
+    <script src="./index.js" ></script>
+</body>
+</html>
