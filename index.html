@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
   <style>
-* {
-    width: 95%;
-    margin: 10px auto;
-}    
+   div, section {
+        width: 95%;
+        margin: 10px auto;
+    }
   </style>
 </head>
 <body>
@@ -19,8 +19,12 @@
       <label for="inputhodo" style="color:#fff;">Hodometro</label>
       <input type="text" id="inputhodo" class="nes-input is-dark" placeholder="hodometro?" value="">
     </div>
-    <button type="button" class="nes-btn is-success" onclick="hodometro()">manutenção</button>
-    <div id="containermanutencao" class="nes-container is-rounded" style="display: none;">
+    <section>
+      <button type="button" class="nes-btn is-success" onclick="hodometro()">manutenção</button>
+    </section>
+    <section>
+      <div id="containermanutencao" class="nes-container is-rounded" style="display: none;">
+    </section>
     </div>
     <hr>
     <section>
