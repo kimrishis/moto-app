@@ -16,6 +16,8 @@ function cadastraPeca(){
     let pecakm = document.getElementById("inputpecakm").value
     pecas.push({nome:peca,km:pecakm})
     exibirPecas()
+    document.getElementById("inputpeca").value = ""
+    document.getElementById("inputpecakm").value = ""
 }
 
 function exibirPecas(){
