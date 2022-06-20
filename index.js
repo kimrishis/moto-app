@@ -1,18 +1,18 @@
 var pecas = []
+var hodo = ''
 
 window.onload = function(){
     exibirPecas()
+    exibirManutencao()
 }
 
 function hodometro(){
-    let hodo = document.getElementById("inputhodo").value
+    document.getElementById("inputhodo").value 
     let containerMsg = document.getElementById("containermanutencao")
     containerMsg.innerHTML = `
-        <p>Manutenção aos ${hodo} km</p>
-
-        <p>Peça PPP precisa trocar aos ${hodo} km</p>
-        
+        <p>Manutenção aos ${document.getElementById("inputhodo").value} km</p>
     `
+    localStorage.setItem('hodo', JSON.stringify(document.getElementById("inputhodo").value))
     containerMsg.style = ""
 }
 
@@ -45,5 +45,17 @@ function carregarPecas(){
     } else {
         console.warn('vamos sem carregar pecas')
         pecas = []
+    }
+}
+
+function exibirManutencao(){
+    const hodoGuardados = localStorage.getItem('hodo')
+    if (hodoGuardados){
+        document.getElementById("inputhodo").value = JSON.parse(hodoGuardados)
+    } else {
+        console.warn('Informe o hodometro')
+    }
+    if (document.getElementById("inputhodo").value){
+        hodometro()
     }
 }
