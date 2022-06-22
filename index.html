@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
   <style>
-   div, section {
+    div, section {
         width: 95%;
         margin: 10px auto;
     }
@@ -17,7 +17,7 @@
 <body>
     <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
       <label for="inputhodo" style="color:#fff;">Hodometro</label>
-      <input type="text" id="inputhodo" class="nes-input is-dark" placeholder="hodometro?" value="">
+      <input type="number" id="inputhodo" class="nes-input is-dark" placeholder="hodometro?" value="">
     </div>
     <section>
       <button type="button" class="nes-btn is-success" onclick="hodometro()">manutenção</button>
@@ -27,11 +27,39 @@
     </section>
     </div>
     <hr>
+    
     <section>
-      <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
+      <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-cadastroTroca').showModal();">
+        cadastro de manutenção
+      </button>
+      <dialog class="nes-dialog" id="dialog-cadastroTroca">
+        <form method="dialog">
+          <p class="title">Realizada manutencao</p>
+          <p></p>
+          <div class="nes-field">
+            <label for="inputtrocapeca">Quantos KM?</label>
+            <input type="text" id="inputtrocapeca" class="nes-input">
+          </div>
+          <div class="nes-field">
+            <label for="inputinputtrocakm">Peças trocadas</label>
+            <textarea id="inputinputtrocakm" class="nes-input"></textarea>
+          </div>
+          <menu class="dialog-menu">
+            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn is-primary" onclick="cadastraTrocaPecas()">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+    </section>
+    <div id="conainerTrocaPecas" class="nes-container is-rounded" style="display: none;">
+    </div>
+
+    <hr>
+   <section>
+      <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-peca').showModal();">
         Cadastro de peça
       </button>
-      <dialog class="nes-dialog" id="dialog-default">
+      <dialog class="nes-dialog" id="dialog-peca">
         <form method="dialog">
           <p class="title">Qual peça vai ser cadastrada?</p>
           <p></p>
