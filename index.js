@@ -1,5 +1,5 @@
 var pecas = []
-var hodo = ''
+var trocapecas = []
 
 window.onload = function(){
     exibirPecas()
@@ -58,4 +58,26 @@ function exibirManutencao(){
     if (document.getElementById("inputhodo").value){
         hodometro()
     }
+}
+
+function cadastraTrocaPecas(){
+    let trocakm = document.getElementById("inputtrocapeca").value
+    let trocadapecas = document.getElementById("inputinputtrocakm").value
+    trocapecas.push({trocakm:trocakm, trocadapecas:trocadapecas})
+    localStorage.setItem('trocaPeca', JSON.stringify(trocapecas))
+    exibirtrocaPecas()
+    document.getElementById("inputtrocapeca").value = ""
+    document.getElementById("inputinputtrocakm").value = ""
+
+}
+
+function exibirtrocaPecas() {
+    let containerMsg = document.getElementById("conainerTrocaPecas")
+    containerMsg.innerHTML = ``
+    for (const objtroca of trocapecas) {
+        containerMsg.innerHTML += `
+            <p>Manutenção feita aos ${objtroca.trocakm} com: ${objtroca.trocadapecas} </p>
+        `
+    }
+    containerMsg.style = ""
 }
